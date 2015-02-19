@@ -13,7 +13,6 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.io.*;
 import java.text.*;
-import java.math.*;
 
 class Perceptron
 {
@@ -23,11 +22,10 @@ class Perceptron
   static int theta = 0;  
   
   
-  public static void perceptron( Set<String> GLOBO_DICT, Map<File, int[] > training_perceptron_input, Map<File, int[] > test_perceptron_input)
+  public static void perceptron( Set<String> GLOBO_DICT, 
+		  						 Map<File, int[] > training_perceptron_input, 
+		  						 Map<File, int[] > test_perceptron_input)
   {
-	  
-		 //number of features, number of x, y, z
-		 int size_of_globo_dict = GLOBO_DICT.size();
 		 
 		 //number of instances
 		 int NUM_INSTANCES = training_perceptron_input.size();
@@ -203,7 +201,7 @@ class Perceptron
         for (p = 0; p < NUM_INSTANCES; p++) 
         {
             // calculate predicted class
-            output = calculateOutput(theta,
+            output = Prcptrn_CalcOutpt.calculateOutput(theta,
             						 weights, 
             						 a00[p], 
             						 a01[p], 
@@ -456,7 +454,7 @@ class Perceptron
       
       int output_TEST;
       // calculate predicted class TEST
-      output_TEST = calculateOutput(theta,
+      output_TEST = Prcptrn_CalcOutpt.calculateOutput(theta,
       						 weights, 
       						 z00[2], 
       						 z01[2], 
@@ -559,109 +557,9 @@ class Perceptron
   * @param z the z input value
   * @return 1 or 0
   */ 
- static int calculateOutput(int theta, 
-		 					double weights[], 
-		 					double a00, 
-		 					double a01,
-		 					double a02,
-		 					double a03,
-		 					double a04,
-		 					double a05,
-		 					double a06,
-		 					double a07,
-		 					double a08,
-		 					double a09,
-		 					double a10,
-		 					double a11,
-		 					double a12,
-		 					double a13,
-		 					double a14,
-		 					double a15,
-		 					double a16,
-		 					double a17,
-		 					double a18,
-		 					double a19,
-		 					double a20,
-		 					double a21,
-		 					double a22,
-		 					double a23,
-		 					double a24,
-		 					double a25,
-		 					double a26,
-		 					double a27,
-		 					double a28,
-		 					double a29,
-		 					double a30)
- {
-    double sum = a00 * 
-    		     weights[ 0] + 
-    		     a01 * 
-    		     weights[ 1] + 
-    		     a02 * 
-    		     weights[ 2] + 
-    		     a03 * 
-    		     weights[ 3] + 
-    		     a04 * 
-    		     weights[ 4] + 
-    		     a05 * 
-    		     weights[ 5] + 
-    		     a06 * 
-    		     weights[ 6] + 
-    		     a07 * 
-    		     weights[ 7] + 
-    		     a08 * 
-    		     weights[ 8] + 
-    		     a09 * 
-    		     weights[ 9] + 
-    		     a10 * 
-    		     weights[10] + 
-    		     a11 * 
-    		     weights[11] + 
-    		     a12 * 
-    		     weights[12] + 
-    		     a13 * 
-    		     weights[13] + 
-    		     a14 * 
-    		     weights[14] + 
-    		     a15 * 
-    		     weights[15] + 
-    		     a16 * 
-    		     weights[16] + 
-    		     a17 * 
-    		     weights[17] + 
-    		     a18 * 
-    		     weights[18] + 
-    		     a19 * 
-    		     weights[19] + 
-    		     a20 * 
-    		     weights[20] + 
-    		     a21 * 
-    		     weights[21] + 
-    		     a22 * 
-    		     weights[22] + 
-    		     a23 * 
-    		     weights[23] + 
-    		     a24 * 
-    		     weights[24] + 
-    		     a25 *
-    		     weights[25] + 
-    		     a26 * 
-    		     weights[26] + 
-    		     a27 * 
-    		     weights[27] + 
-    		     a28 * 
-    		     weights[28] + 
-    		     a29 * 
-    		     weights[29] + 
-    		     a30 *
-    		     weights[30] +  
-    		     weights[31];
-    
-    return (sum >= theta) ? 1 : 0;
- }
+ 
      
 }
-
 
 
 
