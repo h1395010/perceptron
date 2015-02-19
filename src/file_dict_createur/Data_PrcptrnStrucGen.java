@@ -10,8 +10,8 @@ import java.util.Set;
 public class Data_PrcptrnStrucGen 
 {
 	public static void perceptron_data_struc_generateur(Set<String> GLOBO_DICT, 
-													    Map<File, ArrayList<String> > fileDict,
-													    Map<File, int[] > perceptron_input)
+													    Map<String, ArrayList<String> > fileDict,
+													    Map<String, int[] > perceptron_input)
 	{
 		//create a new entry in the array list 'perceptron_input'
 		//with the key as the file name from fileDict
@@ -24,7 +24,7 @@ public class Data_PrcptrnStrucGen
 		//so i can get the index later
 		List<String> GLOBO_DICT_list = new ArrayList<>(GLOBO_DICT);
 		
-		for (Map.Entry<File, ArrayList<String>> entry : fileDict.entrySet()) 
+		for (Map.Entry<String, ArrayList<String>> entry : fileDict.entrySet()) 
 		{
 		    int[] cross_czech = new int[GLOBO_DICT_list.size()];
 		    //initialize to zero

@@ -11,10 +11,16 @@ public class Data_FileDict
 	@SuppressWarnings("unchecked")
 	public static void create_file_dict( File file, 
 										 String[] words, 
-										 Map<File, ArrayList<String> > fileDict ) throws IOException
+										 Map<String, ArrayList<String> > fileDict ) throws IOException
 	{	
 		
-		if (!fileDict.containsKey(file))
+		String key_file_loke = file.getPath()
+								   .toString()
+								   .replaceAll("/[^/]*$", "")
+							       .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/", "")
+							       .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test/", "");
+		
+		if ( ! fileDict.containsKey( key_file_loke ) )
 		{
 			@SuppressWarnings("rawtypes")
 			ArrayList document_words = new ArrayList<String>();
@@ -27,7 +33,8 @@ public class Data_FileDict
 		    
 				document_words.add(word);
 			}
-			fileDict.put(file, document_words);
+			
+			fileDict.put( key_file_loke , document_words);
 		}
 	}
 }

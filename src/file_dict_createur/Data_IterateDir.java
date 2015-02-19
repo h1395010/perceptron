@@ -10,9 +10,9 @@ import java.util.Set;
 
 public class Data_IterateDir 
 {
-	public static void iterateDirectory(File directory, 
+	public static void iterateDirectory( File directory, 
 									     boolean globo_dict_fixed, 
-									     Map<File, ArrayList<String> > fileDict,
+									     Map<String, ArrayList<String> > fileDict,
 									     Set<String> GLOBO_DICT) throws IOException 
 	{
 	    for (File file : directory.listFiles()) 

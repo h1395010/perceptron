@@ -1,21 +1,18 @@
 package file_dict_createur;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 public class Main 
 {
 	static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train";
+	//static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
+
 	
 	//the global list of all words across all articles
 	static Set<String> GLOBO_DICT = new HashSet<String>();
@@ -24,20 +21,21 @@ public class Main
 	static boolean globo_dict_fixed = false;
 	
 	// hash map of all the words contained in individual files
-	static Map<File, ArrayList<String> > training_fileDict = new HashMap<>();
+	static Map<String, ArrayList<String> > training_fileDict = new HashMap<>();
 	
-	static Map<File, ArrayList<String> > test_fileDict = new HashMap<>();
+	static Map<String, ArrayList<String> > test_fileDict = new HashMap<>();
 	
 	//input to perceptron. final struc.
-	static Map<File, int[] > training_perceptron_input = new HashMap<>();
+	static Map<String, int[] > training_perceptron_input = new HashMap<>();
 	
-	static Map<File, int[] > test_perceptron_input = new HashMap<>();
+	static Map<String, int[] > test_perceptron_input = new HashMap<>();
 	
 	
 	public static void main(String[] args) throws IOException 
 	{
 		//each of the diferent categories
 		String[] categories = { "/atheism", "/politics", "/science", "/sports"};
+		//String[] categories = { "/atheism", "/sports"};
 		
 		//cycle through all categories once to populate the global dict
 		for(int cycle = 0; cycle <= 3; cycle++)
@@ -75,6 +73,8 @@ public class Main
 		{
 			//get the test data
 			String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test";
+			//String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/test";
+			
 			File test_dict = new File( test_path + categories[cycle]);
 			Data_IterateDir.iterateDirectory( test_dict , globo_dict_fixed, test_fileDict, GLOBO_DICT  );
 		}
@@ -85,10 +85,10 @@ public class Main
 		
 		
 		
-		for (Map.Entry<File, int[]> entry : test_perceptron_input.entrySet()) 
-		{
-			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
-		}
+		//for (Map.Entry<String, int[]> entry : test_perceptron_input.entrySet()) 
+		//{
+			//System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
+		//}
 		
 		
 		
