@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class Data_IterateDir 
 {
+	@SuppressWarnings("unchecked")
 	public static void iterateDirectory( File directory, 
 									     boolean globo_dict_fixed, 
 									     Map<String, ArrayList<String> > fileDict,
@@ -25,8 +26,11 @@ public class Data_IterateDir
 	        {   
 	    		String line; 
 	    		BufferedReader br = new BufferedReader(new FileReader( file ));
-
-	    		while ((line = br.readLine()) != null) 
+	    		
+	    		
+	    		ArrayList<String> document_words_on_line = new ArrayList<String>();
+	    		
+	    		while((line = br.readLine()) != null) 
 	    		{
 	    			String[] words = line.split(" ");//those are your words
 
@@ -36,9 +40,33 @@ public class Data_IterateDir
 	    			}
 	    			else
 	    			{
-	    				Data_FileDict.create_file_dict( file, words, fileDict );
+	    				//this should be something about the file being finished
+	    				//not just storing the key, because this way it only stores the first line
+	    				//
+	    				//if it doesn't contain the key, it needs the key label, that's the first step
+	    				//
+	    				//make an array list of all the words
+	    				String word;
+	    				
+	    				for (int i = 0; i < words.length; i++) 
+	    				{
+	    					word = words[i];
+	    			    
+	    					document_words_on_line.add(word);
+	    				}
+	    				
 	    			}
+	    			
 	    		}
+	    		//does it make sense for the key to be here?
+				String key_file_loke = file.getPath()
+		                   				   .toString()
+		                                   .replaceAll("/[^/]*$", "")
+	                                       .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/", "")
+	                                       .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test/", "");
+	    		//this should be here, meaning that the line is null and the file is over
+				//if ( ! fileDict.containsKey( key_file_loke ) )
+				fileDict.put( key_file_loke , document_words_on_line );
 	        }
 	    }
 	}

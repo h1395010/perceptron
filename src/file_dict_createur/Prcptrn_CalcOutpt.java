@@ -14,7 +14,8 @@ public class Prcptrn_CalcOutpt
     {
         double sum = 0;
         int i;
-        for (i = 0; i < a.length; i++) {
+        for (i = 0; i < a.length; i++) 
+        {
             sum += weights[i] * a[i][index];
         }
         sum += weights[i];
