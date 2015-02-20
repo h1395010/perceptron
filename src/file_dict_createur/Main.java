@@ -19,8 +19,6 @@ public class Main
 	//the global list of all words across all articles
 	static Set<String> GLOBO_DICT = new HashSet<String>();
 	
-	//is the globo dict full?
-	static boolean globo_dict_fixed = false;
 	
 	// hash map of all the words contained in individual files
 	static Map<String, ArrayList<String> > training_fileDict = new HashMap<>();
@@ -46,12 +44,7 @@ public class Main
 			String general_data_partition = PATH + categories[cycle];
 			
 			File directory = new File( general_data_partition );
-			Data_IterateDir.iterateDirectory( directory , globo_dict_fixed, training_fileDict, GLOBO_DICT  ); //that training dict doesn't need to be here
-			// ^ NEEDS REFACTORING!!!
-			
-			//DUH!!! MUST FIX THIS!!!
-			if(cycle == 1)
-				globo_dict_fixed = true;
+			IterateGlobo.iterateGlobo( directory , GLOBO_DICT  );
 		}
 		
 		
@@ -62,12 +55,12 @@ public class Main
 			String general_data_partition = PATH + categories[cycle];
 					
 			File directory = new File( general_data_partition );
-			Data_IterateDir.iterateDirectory( directory , globo_dict_fixed, training_fileDict, GLOBO_DICT  );
+			IterateDir.iterateDirectory( directory , training_fileDict, GLOBO_DICT  );
 					
 		}
 		
 		//get feature vectors for the training data
-		Data_PrcptrnStrucGen.perceptron_data_struc_generateur( GLOBO_DICT, training_fileDict, training_perceptron_input );
+		PrcptrnStrucGen.perceptron_data_struc_generateur( GLOBO_DICT, training_fileDict, training_perceptron_input );
 
 
 		
@@ -82,26 +75,28 @@ public class Main
 			String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test";
 			
 			File test_dict = new File( test_path + categories[cycle]);
-			Data_IterateDir.iterateDirectory( test_dict , globo_dict_fixed, test_fileDict, GLOBO_DICT  );
+			IterateDir.iterateDirectory( test_dict , test_fileDict, GLOBO_DICT  );
 		}
 		
 		//get feature vectors for the TEST data
-		Data_PrcptrnStrucGen.perceptron_data_struc_generateur( GLOBO_DICT, test_fileDict, test_perceptron_input );
+		PrcptrnStrucGen.perceptron_data_struc_generateur( GLOBO_DICT, test_fileDict, test_perceptron_input );
 
 		
-		/*
-		System.out.println("TEST");
-		for (Map.Entry<String, int[]> entry : test_perceptron_input.entrySet()) 
-		{
-			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
-		}
+		
+		
+		
+//		System.out.println("TEST");
+//		for (Map.Entry<String, int[]> entry : test_perceptron_input.entrySet()) 
+//		{
+//			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
+//		}
 		
 		System.out.println("TRAIN");
 		for (Map.Entry<String, int[]> entry : training_perceptron_input.entrySet()) 
 		{
 			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
 		}
-		*/
+		
 		
 		
 		

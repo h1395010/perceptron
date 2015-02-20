@@ -16,7 +16,7 @@ class Perceptron {
     static final int MAX_ITER = 100;
     static final double LEARNING_RATE = 0.1;
     static final int THETA = 0;
-    //static final String FILEPATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/atheism/a_0.txt";
+    
     static final String FILEPATH = "atheism";
     //static final String FILEPATH = "sports";
     

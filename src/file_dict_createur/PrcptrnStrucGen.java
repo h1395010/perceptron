@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Data_PrcptrnStrucGen 
+public class PrcptrnStrucGen 
 {
 	public static void perceptron_data_struc_generateur(Set<String> GLOBO_DICT, 
 													    Map<String, ArrayList<String> > fileDict,

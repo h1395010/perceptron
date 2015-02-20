@@ -3,7 +3,7 @@ package file_dict_createur;
 import java.io.IOException;
 import java.util.Set;
 
-public class Data_GloboPop
+public class GloboPop
 {
 
 	public static void populate_globo_dict( String[] words, Set<String> GLOBO_DICT ) throws IOException
