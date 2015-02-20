@@ -17,8 +17,8 @@ class Perceptron {
     static final double LEARNING_RATE = 0.1;
     static final int THETA = 0;
     
-    static final String FILEPATH = "atheism";
-    //static final String FILEPATH = "sports";
+    //static final String FILEPATH = "atheism";
+    static final String FILEPATH = "sports";
     
 
     
