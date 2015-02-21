@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class Main 
 {
-	//static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train";
+
 	//static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
 	static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train";
 
@@ -71,7 +71,7 @@ public class Main
 		for(int cycle = 0; cycle <= 1; cycle++)
 		{
 			//get the test data
-			//String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test";
+			//String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
 			String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test";
 			
 			File test_dict = new File( test_path + categories[cycle]);
@@ -90,12 +90,12 @@ public class Main
 //		{
 //			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
 //		}
-		
-		System.out.println("TRAIN");
-		for (Map.Entry<String, int[]> entry : training_perceptron_input.entrySet()) 
-		{
-			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
-		}
+//		
+//		System.out.println("TRAIN");
+//		for (Map.Entry<String, int[]> entry : training_perceptron_input.entrySet()) 
+//		{
+//			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
+//		}
 		
 		
 		

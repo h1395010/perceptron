@@ -85,25 +85,11 @@ class Perceptron {
         outputs = new int[inputSize];
         double[][] z = initializeOutput(testPerceptronInput, globoDictSize, outputs);
 
-        // calculate predicted class TEST
-        //if you change up the input, you've got to find a different test
-        //here is the issue
 
+        test_output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, z, 1);
         
 
-        //is it safe to globo this?
-        test_output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, z, 0);
-        
 
-//        System.out.println("\n=======\nTEST Point:");
-//        for (i = 0; i < z.length; i++) 
-//        {
-//            System.out.println(" z");
-//            if (i < 10) System.out.print(0);
-//            System.out.println(i + "[0]" + z[i][0]);
-//        }
-//        System.out.println();
-      //is it safe to globo this?
         System.out.println("class = " + test_output);
     }
 

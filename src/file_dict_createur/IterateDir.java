@@ -23,9 +23,6 @@ public class IterateDir
     		String line; 
     		BufferedReader br = new BufferedReader(new FileReader( file ));
     		
-    		
-    		//ArrayList<String> document_words_on_line = new ArrayList<String>();
-    		
     		while((line = br.readLine()) != null) 
     		{
     			String[] words = line.split(" ");//those are your words
@@ -38,19 +35,17 @@ public class IterateDir
     			    
     					document_words_on_line.add(word);
     				}
-    				
     			}
     			
-    		
-    		//does it make sense for the key to be here?
     		directory_key = file.getPath()
-	                   				   .toString()
-	                                   .replaceAll("/[^/]*$", "")
-                                       .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/", "")
-                                       .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test/", "");
+	                   			.toString()
+	                            .replaceAll("/[^/]*$", "")
+                                .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/", "")
+                                .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test/", "")
+                                .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train/", "")
+                                .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/test/", "");
 
 	    }
-		fileDict.put( directory_key , document_words_on_line );
-	    
+		fileDict.put( directory_key , document_words_on_line );    
 	}
 }
