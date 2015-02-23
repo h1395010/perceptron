@@ -1,0 +1,8 @@
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/atheism/a_0.txt
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/politics/p_0.txt
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/science/s_0.txt
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/sports/s_1.txt
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/politics/p_0.txt, [L'Etat,, c'est, moi.]
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/science/s_0.txt, [If, I, have, seen, further, it, is, by, standing, on, the, shoulders, of, giants.]
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/atheism/a_0.txt, [Gott, ist, tot.]
+/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/sports/s_1.txt, [You, miss, 100%, of, the, shots, you, don't, take.]

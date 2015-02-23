@@ -9,11 +9,15 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.jfree.ui.RefineryUtilities;
+
 public class Main 
 {
 
 	//static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
 	static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train";
+	
+
 
 	
 	//the global list of all words across all articles
@@ -97,6 +101,9 @@ public class Main
 //			System.out.println(entry.getKey() + ", " + Arrays.toString(entry.getValue()));
 //		}
 		
+
+
+
 		
 		
 		

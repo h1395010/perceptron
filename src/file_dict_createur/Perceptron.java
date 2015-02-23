@@ -9,16 +9,23 @@ package file_dict_createur;
  https://github.com/RichardKnop/ansi-c-perceptron
 */  
 
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.Map.Entry;
 
-class Perceptron {
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.ui.RefineryUtilities;
+
+class Perceptron 
+{
     static final int MAX_ITER = 100;
     static final double LEARNING_RATE = 0.1;
     static final int THETA = 0;
     
-    //static final String FILEPATH = "atheism";
-    static final String FILEPATH = "sports";
+    static final String FILEPATH = "atheism";
+    //static final String FILEPATH = "sports";
     
 
     
@@ -34,11 +41,12 @@ class Perceptron {
         double[] weights = new double[globoDictSize + 1];
         for (int i = 0; i < weights.length; i++) 
         {
-            weights[i] = Math.floor(Math.random() * 10000) / 10000;
+            //weights[i] = Math.floor(Math.random() * 10000) / 10000;
+            weights[i] = randomNumber(-10 , 10);
         }
 
         int inputSize = trainingPerceptronInput.size();
-        int[] outputs = new int[inputSize];
+        double[] outputs = new double[inputSize];
         final double[][] a = initializeOutput(trainingPerceptronInput, globoDictSize, outputs);
 
         double globalError;
@@ -51,11 +59,13 @@ class Perceptron {
             for (int p = 0; p < inputSize; p++) 
             {
                 // calculate predicted class
-                int output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, a, p);
+                double output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, a, p);
                 // difference between predicted and actual class values
                 double localError = outputs[p] - output;
+                
                 int i;
-                for (i = 0; i < a.length; i++) {
+                for (i = 0; i < a.length; i++) 
+                {
                     weights[i] += LEARNING_RATE * localError * a[i][p];
                 }
                 weights[i] += LEARNING_RATE * localError;
@@ -66,8 +76,7 @@ class Perceptron {
 
             /* Root Mean Squared Error */
             System.out.println("Iteration "
-                + iteration + " : RMSE = " + Math.sqrt(globalError
-                    / inputSize));
+                + iteration + " : RMSE = " + Math.sqrt(globalError / inputSize));
         } 
         while (globalError != 0 && iteration <= MAX_ITER);
 
@@ -75,27 +84,26 @@ class Perceptron {
         int i;
         for (i = 0; i < a.length; i++) 
         {
-            //System.out.print(" a");
-            //if (i < 10) System.out.print(0);
-            //System.out.println(i + " *" + weights[i]);
+//            System.out.print(" a");
+//            if (i < 10) System.out.print(0);
+//            System.out.println( i + " * " + weights[i]);
+            
+        	
         }
         System.out.println(" bias: " + weights[i]);
 
         inputSize = testPerceptronInput.size();
-        outputs = new int[inputSize];
-        double[][] z = initializeOutput(testPerceptronInput, globoDictSize, outputs);
+        outputs = new double[inputSize];
+        double[][] z = initializeOutput(testPerceptronInput, globoDictSize, outputs); 
 
-
-        test_output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, z, 1);
-        
-
+        test_output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, z, 1);       
 
         System.out.println("class = " + test_output);
     }
 
     static double[][] initializeOutput( Map<String, int[]> perceptronInput, 
     							        int size, 
-    							        int[] outputs)
+    							        double[] outputs)
     {
         final int inputSize = perceptronInput.size();
         final double[][] a = new double[size][inputSize];
@@ -127,6 +135,16 @@ class Perceptron {
 
         return a;
     }
+
+    public static double randomNumber(int min , int max) {
+        DecimalFormat df = new DecimalFormat("#.####");
+        double d = min + Math.random() * (max - min);
+        String s = df.format(d);
+        double x = Double.parseDouble(s);
+        return x;
+    }
+    
+
 
 
 }
