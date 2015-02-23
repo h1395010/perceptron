@@ -14,8 +14,8 @@ import org.jfree.ui.RefineryUtilities;
 public class Main 
 {
 
-	//static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
-	static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train";
+	static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
+	//static String PATH = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train";
 	
 
 
@@ -75,8 +75,8 @@ public class Main
 		for(int cycle = 0; cycle <= 1; cycle++)
 		{
 			//get the test data
-			//String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
-			String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test";
+			String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/data/train";
+			//String test_path = "/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test";
 			
 			File test_dict = new File( test_path + categories[cycle]);
 			IterateDir.iterateDirectory( test_dict , test_fileDict, GLOBO_DICT  );

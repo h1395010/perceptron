@@ -20,9 +20,9 @@ import org.jfree.ui.RefineryUtilities;
 
 class Perceptron 
 {
-    static final int MAX_ITER = 100;
+    static final int MAX_ITER = 1000;
     static final double LEARNING_RATE = 0.1;
-    static final int THETA = 0;
+    static final double THETA = 0;
     
     static final String FILEPATH = "atheism";
     //static final String FILEPATH = "sports";
@@ -42,7 +42,8 @@ class Perceptron
         for (int i = 0; i < weights.length; i++) 
         {
             //weights[i] = Math.floor(Math.random() * 10000) / 10000;
-            weights[i] = randomNumber(-10 , 10);
+            weights[i] = randomNumber(0,1);
+            //weights[i] = 0.0;
         }
 
         int inputSize = trainingPerceptronInput.size();
@@ -61,6 +62,7 @@ class Perceptron
                 // calculate predicted class
                 double output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, a, p);
                 // difference between predicted and actual class values
+                //always either zero or one?
                 double localError = outputs[p] - output;
                 
                 int i;
@@ -75,8 +77,7 @@ class Perceptron
             }
 
             /* Root Mean Squared Error */
-            System.out.println("Iteration "
-                + iteration + " : RMSE = " + Math.sqrt(globalError / inputSize));
+            System.out.println("Iteration " + iteration + " : RMSE = " + Math.sqrt(globalError / inputSize));
         } 
         while (globalError != 0 && iteration <= MAX_ITER);
 

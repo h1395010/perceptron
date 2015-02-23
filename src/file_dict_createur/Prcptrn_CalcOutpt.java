@@ -10,15 +10,17 @@ public class Prcptrn_CalcOutpt
      * @param a the array of inputs
      * @return 1 or 0
      */
-    static int calculateOutput(int theta, double[] weights, double[][] a, int index)
+    static int calculateOutput(double theta, double[] weights, double[][] a, int index)
     {
         double sum = 0;
         int i;
-        for (i = 0; i < a.length; i++) 
+        for (i = 0; i < a[i].length; i++) 
         {
-            sum += weights[i] * a[i][index];
+            sum += weights[i] * a[index][i];
         }
         sum += weights[i];
+        
+        //unit step function?
         return (sum >= theta) ? 1 : 0;
     }
 }
