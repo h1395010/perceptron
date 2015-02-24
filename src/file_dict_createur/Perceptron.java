@@ -62,7 +62,7 @@ class Perceptron
                 // calculate predicted class
                 double output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, a, p);
                 // difference between predicted and actual class values
-                //always either zero or one?
+                //always either zero or one
                 double localError = outputs[p] - output;
                 
                 int i;
@@ -132,6 +132,7 @@ class Perceptron
                 a[i][x] = feature_matrix[x][i];
             }
             outputs[x] = output_label[x].equals(FILEPATH) ? 1 : 0;
+            //outputs[x] = output_label[x].equals(FILEPATH) ? 1 : -1;
         }
 
         return a;
