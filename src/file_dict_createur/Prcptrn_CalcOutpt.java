@@ -21,7 +21,7 @@ public class Prcptrn_CalcOutpt
         sum += weights[i];
         
         //unit step function
-        return (sum >= theta) ? 1 : 0;
-        //return (sum >= theta) ? 1 : -1;
+        //return (sum >= theta) ? 1 : 0;
+        return (sum >= theta) ? 1 : -1;
     }
 }

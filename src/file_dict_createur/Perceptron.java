@@ -24,8 +24,11 @@ class Perceptron
     static final double LEARNING_RATE = 0.1;
     static final double THETA = 0;
     
-    static final String FILEPATH = "atheism";
+    static final String LABEL = "atheism";
     //static final String FILEPATH = "sports";
+    
+    //1 or 0 corresponding to the feature vector for aetheism or sports
+    static final int TEST_CLASS = 0;
     
 
     
@@ -85,21 +88,26 @@ class Perceptron
         int i;
         for (i = 0; i < a.length; i++) 
         {
-//            System.out.print(" a");
-//            if (i < 10) System.out.print(0);
-//            System.out.println( i + " * " + weights[i]);
+            System.out.print(" a");
+            if (i < 10) System.out.print(0);
+            System.out.println( i + " * " + weights[i] + " + " );
             
         	
         }
         System.out.println(" bias: " + weights[i]);
-
+        
+        
+        //TEST
+        //this works because, at this point the weights have already been learned. 
         inputSize = testPerceptronInput.size();
         outputs = new double[inputSize];
         double[][] z = initializeOutput(testPerceptronInput, globoDictSize, outputs); 
 
-        test_output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, z, 1);       
-
+        test_output = Prcptrn_CalcOutpt.calculateOutput(THETA, weights, z, TEST_CLASS);       
+        
         System.out.println("class = " + test_output);
+        
+        
     }
 
     static double[][] initializeOutput( Map<String, int[]> perceptronInput, 
@@ -131,14 +139,15 @@ class Perceptron
             {
                 a[i][x] = feature_matrix[x][i];
             }
-            outputs[x] = output_label[x].equals(FILEPATH) ? 1 : 0;
-            //outputs[x] = output_label[x].equals(FILEPATH) ? 1 : -1;
+            //outputs[x] = output_label[x].equals(LABEL) ? 1 : 0;
+            outputs[x] = output_label[x].equals(LABEL) ? 1 : -1;
         }
 
         return a;
     }
 
-    public static double randomNumber(int min , int max) {
+    public static double randomNumber(int min , int max) 
+    {
         DecimalFormat df = new DecimalFormat("#.####");
         double d = min + Math.random() * (max - min);
         String s = df.format(d);
